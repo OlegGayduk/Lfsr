@@ -1,0 +1,65 @@
+Microsoft (R) Macro Assembler Version 14.28.29336.0	    02/14/21 14:55:30
+Source.asm						     Page 1 - 1
+
+
+				Title Сложение двух чисел; Заголовок программы
+				.686; Тип микропроцессора
+				.MODEL FLAT, C ; Модель памяти -Win32 (начиная с i386) и язык программирования
+				.STACK 256; Сегмент стека и его размер
+ 00000000			.DATA; Сегментданных
+ 00000000 001F 001E 001D	arr dw 31,30,29,27,25
+	   001B 0019
+ 00000000			.CODE; Сегмент кода программы
+				;-----------External usage-------------------------
+				; Возвращаемое значение процедуры во внешнее приложение
+				;EXTRN str : byte
+				;-----------Function definitions-------------------
+				; Описание экспортируемой функции
+				PUBLIC C lfsr 
+ 00000000			lfsr PROC far; Заголовок экспортируемой функции
+				;far -возможность обращения к процедуре из другого участка кода проекта
+ 00000000  B8 00000001		mov eax,1;
+ 00000005  C1 E8 1F		shr eax, 31;
+ 00000008  C3			retn 
+ 00000009			lfsr ENDP
+				END
+Microsoft (R) Macro Assembler Version 14.28.29336.0	    02/14/21 14:55:30
+Source.asm						     Symbols 2 - 1
+
+
+
+
+Segments and Groups:
+
+                N a m e                 Size     Length   Align   Combine Class
+
+FLAT . . . . . . . . . . . . . .	GROUP
+STACK  . . . . . . . . . . . . .	32 Bit	 00000100 Para	  Stack	  'STACK'	 
+_DATA  . . . . . . . . . . . . .	32 Bit	 0000000A Para	  Public  'DATA'	
+_TEXT  . . . . . . . . . . . . .	32 Bit	 00000009 Para	  Public  'CODE'	
+
+
+Procedures, parameters, and locals:
+
+                N a m e                 Type     Value    Attr
+
+lfsr . . . . . . . . . . . . . .	P Far	 00000000 _TEXT	Length= 00000009 Public C
+
+
+Symbols:
+
+                N a m e                 Type     Value    Attr
+
+@CodeSize  . . . . . . . . . . .	Number	 00000000h   
+@DataSize  . . . . . . . . . . .	Number	 00000000h   
+@Interface . . . . . . . . . . .	Number	 00000001h   
+@Model . . . . . . . . . . . . .	Number	 00000007h   
+@code  . . . . . . . . . . . . .	Text   	 _TEXT
+@data  . . . . . . . . . . . . .	Text   	 FLAT
+@fardata?  . . . . . . . . . . .	Text   	 FLAT
+@fardata . . . . . . . . . . . .	Text   	 FLAT
+@stack . . . . . . . . . . . . .	Text   	 FLAT
+arr  . . . . . . . . . . . . . .	Word	 00000000 _DATA	
+
+	   0 Warnings
+	   0 Errors
